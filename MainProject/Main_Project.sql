@@ -2,7 +2,7 @@ CREATE DATABASE LIBRARY_DB;
 use LIBRARY_DB;
 CREATE TABLE Branch 
 (
-	Branch_no INT PRIMARY KEY,
+    Branch_no INT PRIMARY KEY,
     Manager_Id INT,
     Branch_address VARCHAR(50),
     Contact_no BIGINT
@@ -18,10 +18,10 @@ SELECT * FROM Branch;
 
 CREATE TABLE Employee
 (
-	Emp_Id INT PRIMARY KEY,
+    Emp_Id INT PRIMARY KEY,
     Emp_name VARCHAR(20),
     Emp_Position VARCHAR(20),
-	Salary BIGINT,
+    Salary BIGINT,
     Branch_no INT,
     FOREIGN KEY (Branch_no) REFERENCES Branch(Branch_no)
 );
@@ -49,7 +49,7 @@ SELECT * FROM Employee;
 
 CREATE TABLE Customer
 (
-	Customer_Id INT PRIMARY KEY,
+    Customer_Id INT PRIMARY KEY,
     Customer_name VARCHAR(20),
     Customer_address VARCHAR(50),
     Reg_date DATE
@@ -71,13 +71,13 @@ VALUES
 SELECT * FROM Customer;
 CREATE TABLE Books
 (
-	ISBN INT PRIMARY KEY,
+    ISBN INT PRIMARY KEY,
     Book_title VARCHAR(100),
     Category VARCHAR(30),
     Rental_Price DECIMAL(10,5),
     Status VARCHAR(5), #[Give yes if book available and no if book not available] 
     Author VARCHAR(20),
-	Publisher VARCHAR(50)
+    Publisher VARCHAR(50)
 );
 INSERT INTO Books (ISBN, Book_title, Category, Rental_Price, Status, Author, Publisher)
 VALUES
@@ -99,9 +99,9 @@ SELECT * FROM Books;
 
 CREATE TABLE IssueStatus
 (
-	Issue_Id INT PRIMARY KEY,
+    Issue_Id INT PRIMARY KEY,
     Issued_cust INT,# Set as FOREIGN KEY and it refer customer_id in CUSTOMER table
-	Issued_book_name VARCHAR(100),
+    Issued_book_name VARCHAR(100),
     Issue_date DATE,
     Isbn_book INT, #Set as FOREIGN KEY and it should refer isbn in BOOKS tabl
     FOREIGN KEY (Issued_cust) REFERENCES Customer(Customer_Id),
@@ -134,7 +134,7 @@ SELECT * FROM IssueStatus;
 
 CREATE TABLE ReturnStatus
 (
-	Return_Id INT PRIMARY KEY,
+    Return_Id INT PRIMARY KEY,
     Return_cust INT,
     Return_book_name VARCHAR(100),
     Return_date DATE,
