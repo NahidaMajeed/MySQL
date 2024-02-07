@@ -177,7 +177,7 @@ SELECT Customer_name, Reg_date FROM Customer WHERE Customer_Id NOT IN (SELECT Is
 SELECT Branch_no, COUNT(Emp_name) AS Total_Employees FROM Employee GROUP BY Branch_no;
 
 # 8. Display the names of customers who have issued books in the month of June 2023.
-SELECT Customer_name FROM Customer WHERE Customer_Id IN (SELECT Issued_cust FROM IssueStatus WHERE MONTH(Issue_date) = 6 AND year(i.issue_date) =2023);
+SELECT Customer_name FROM Customer WHERE Customer_Id IN (SELECT Issued_cust FROM IssueStatus WHERE MONTH(Issue_date) = 6 AND year(Issue_date) =2023);
 
 # 9. Retrieve book_title from book table containing history. 
 SELECT Book_title FROM Books WHERE Category = "History";
